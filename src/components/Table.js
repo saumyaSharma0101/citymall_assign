@@ -112,7 +112,9 @@ class Table extends React.Component {
 
   componentDidMount() {
     var updatedData = JSON.parse(localStorage.getItem("row"));
-    this.setState({ rowData: updatedData });
+    if (updatedData) {
+      this.setState({ rowData: updatedData });
+    }
   }
 
   onGenderChange = (gender) => {
