@@ -182,6 +182,10 @@ class Table extends React.Component {
       //   alert("Error :  Please add all the fields");
       //   valid=false;
       // }
+      if (item.id == "" || isNaN(item.id)) {
+        alert("Invalid ID");
+        valid = false;
+      }
       if (item.name.length < 3) {
         alert("Invalid Name");
         valid = false;
