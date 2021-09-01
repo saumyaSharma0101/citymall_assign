@@ -82,7 +82,22 @@ class Table extends React.Component {
         },
       ],
       rowData: [
-        { id: 1, name: "Janie", email: "janie@gmail.com", gender: "female" },
+        {
+          id: 1,
+          name: "Janie",
+          email: "janie@gmail.com",
+          gender: "Female",
+          country: "India",
+          city: "Jodhpur",
+        },
+        {
+          id: 2,
+          name: "Jane",
+          email: "jane@gmail.com",
+          gender: "Male",
+          country: "USA",
+          city: "Boston",
+        },
       ],
       frameworkComponents: {
         genderDrpdwn: GenderDrpdwn,

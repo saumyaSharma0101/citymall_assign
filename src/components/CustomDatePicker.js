@@ -25,7 +25,6 @@ function CustomDatePicker() {
       <form className={classes.container} noValidate>
         <TextField
           id="date"
-          // label="Birthday"
           type="date"
           defaultValue=""
           className={classes.textField}
