@@ -5,6 +5,8 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 //bootstrap
+import { AllCommunityModules } from "ag-grid-react";
+
 class SubmitTable extends React.Component {
   //initialize array variable
   constructor(props) {
@@ -16,30 +18,44 @@ class SubmitTable extends React.Component {
         {
           headerName: "Id",
           field: "id",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "Name",
           field: "name",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "Email",
           field: "email",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "Gender",
           field: "gender",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "DOB",
           field: "dob",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "Country",
           field: "country",
+          sortable: true,
+          filter: true,
         },
         {
           headerName: "City",
           field: "city",
+          sortable: true,
+          filter: true,
         },
       ],
       rowData: [],
@@ -50,11 +66,24 @@ class SubmitTable extends React.Component {
     this.gridApi = params.api;
   };
   //ag-Grid add new row functions
+  // componentDidUpdate(){
+  //   this.gridApi.updateRowData(this.props.rowdata);
+  // }
+  componentDidUpdate(previousProps, previousState) {
+    console.log(previousProps, this.props.rowData);
+    if (previousProps.rowData !== this.props.rowData) {
+      this.setState({
+        rowData: this.props.rowData,
+      });
+    }
+  }
 
   render() {
+    //console.log(this.props)
     //output for browser
     return (
       <div className="container">
+        <h2>Submitted Data</h2>
         <div
           className="ag-theme-alpine"
           style={{
@@ -66,6 +95,9 @@ class SubmitTable extends React.Component {
             onGridReady={this.onGridReady}
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
+            frameworkComponents={this.state.frameworkComponents}
+            context={this.state.context}
+            modules={AllCommunityModules}
           ></AgGridReact>
         </div>
       </div>
